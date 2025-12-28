@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	
+	"maps"
 )
 
 func main(){
@@ -20,6 +20,11 @@ func main(){
 	// clear(m)
 	fmt.Println(n["mathw"])
 	k:= map[string]int{"price":100}
+    k2:= map[string]int{"price":100}
+
+
+	fmt.Println(maps.Equal(k,k2))
+
 
 
 	v,ok:= k["price"]
