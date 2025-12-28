@@ -19,4 +19,19 @@ func main(){
 	clear(m)
 	// clear(m)
 	fmt.Println(n["mathw"])
+	k:= map[string]int{"price":100}
+
+
+	v,ok:= k["price"]
+
+
+	fmt.Println(v)
+	if ok{
+		fmt.Println("present")
+	}else{
+		fmt.Println("not present")
+	}
+	fmt.Println(k["price"])
+
+
 } 
