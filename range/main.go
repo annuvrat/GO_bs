@@ -7,9 +7,9 @@ func main() {
 	// for i:=0; i<len(nums); i++{
 	// 	println(nums[i])
 	// }
-    sum:=0
-	for _,num := range nums{
-		sum =sum+num
+    // sum:=0
+	for i,num := range nums{
+		// fmt.Println(i)
+		fmt.Println(num,i)
 	}
-	fmt.Println(sum)
 }
