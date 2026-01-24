@@ -15,8 +15,9 @@ func sum(nums...int)int{
 
 func main(){
   
-
-	result:= sum(2,3,4,5,6)
+   nums:=[]int{2,3,4,5,6}
+   result:= sum(nums...)
+	// result:= sum(2,3,4,5,6)
 
 	fmt.Println("The sum is:",result)
  
