@@ -27,6 +27,10 @@ func main() {
 
 	myorder:=order{
 		//if you  dont initialize fields, they get zero or default values and for string its ""
+		//int =0
+		//string=""
+		//float=0.0
+		//bool=false
 		id: "1234",
 		// amount: 250.5,
 		status: "created",
