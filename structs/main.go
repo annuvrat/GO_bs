@@ -13,7 +13,16 @@ type order struct{
 	createdAt time.Time  //nano second precision
 }
 
+func (o *order)changeStatus(status string){
+	o.status=status
 
+}
+
+func (o order)getAmount()float32{
+
+	return o.amount
+
+}
 func main() {
 
 	myorder:=order{
@@ -22,8 +31,21 @@ func main() {
 		status: "created",
 		// createdAt: time.Now(),
 	}
-  
-	myorder.createdAt = time.Now()
 
-fmt.Println("Order before update:", myorder)
+
+	MYorder2:= order{
+		id: "5678",
+		amount: 100.0,
+		status: "shipped",
+		createdAt: time.Now(),
+	}
+    myorder.changeStatus("confirmed")
+	// fmt.Println("Order after changeStatus call:", myorder)
+	myorder.createdAt = time.Now()
+	MYorder2.status = "delivered"
+	fmt.Println("Order Amount:", myorder.getAmount())
+
+// fmt.Println("Order before update:", myorder)
+// fmt.Println("Second Order:", MYorder2)
+// fmt.Println("Order created at:", myorder.createdAt)
 }
