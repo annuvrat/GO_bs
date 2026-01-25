@@ -27,7 +27,7 @@ func main() {
 
 	myorder:=order{
 		id: "1234",
-		amount: 250.5,
+		// amount: 250.5,
 		status: "created",
 		// createdAt: time.Now(),
 	}
