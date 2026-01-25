@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"time"
 	// "time"
 )
-
 
 // type order struct{
 // 	id string
@@ -45,7 +45,6 @@ import (
 // 		// createdAt: time.Now(),
 // 	}
 
-
 // 	MYorder2:= order{
 // 		id: "5678",
 // 		amount: 100.0,
@@ -63,19 +62,52 @@ import (
 // // fmt.Println("Order created at:", myorder.createdAt)
 // }
 
+// func  main() {
+
+//   language:=struct{
+// 	name string
+// 	year int
+//   }{
+// 	name: "Go",
+// 	year: 2009,
+//   }
+//   fmt.Println("Language:", language)
+// }
 
 
-func  main() {
-
-  language:=struct{
+type customer struct{
+	id string
 	name string
-	year int
-  }{
-	name: "Go",
-	year: 2009,
-  }
-  fmt.Println("Language:", language)
+	email string
 }
 
 
+type order struct{
+	id string
+	amount float32
+	status string
+	createdAt time.Time
+	customer
 
+}
+
+
+func main(){
+
+	result:= order{
+		id: "ord123",
+		amount: 299.99,
+		status: "processing",
+	}
+
+	// result.customer.email="email"
+	// result.customer.id="cust001"
+
+
+	result.customer= customer{
+		id: "cust001",
+		name: "John Doe",
+		email: "empr",
+	}
+fmt.Println("Order:", result)
+}
