@@ -25,7 +25,7 @@ import "fmt"
 func changeNum(num*int){
 	// here num is a pointer to main function num
 	// so changing the value at the address will affect main function num
-	*num =5
+	*num =5 //dereferencing the pointer to change the value
 	fmt.Println("Inside changeNum function:", *num)
 
 }
