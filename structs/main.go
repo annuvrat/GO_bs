@@ -36,16 +36,16 @@ func main() {
 	MYorder2:= order{
 		id: "5678",
 		amount: 100.0,
-		status: "shipped",
+		// status: "shipped",
 		createdAt: time.Now(),
 	}
     myorder.changeStatus("confirmed")
 	// fmt.Println("Order after changeStatus call:", myorder)
 	myorder.createdAt = time.Now()
-	MYorder2.status = "delivered"
+	// MYorder2.status = "delivered"
 	fmt.Println("Order Amount:", myorder.getAmount())
 
 // fmt.Println("Order before update:", myorder)
-// fmt.Println("Second Order:", MYorder2)
+fmt.Println("Second Order:", MYorder2)
 // fmt.Println("Order created at:", myorder.createdAt)
 }
