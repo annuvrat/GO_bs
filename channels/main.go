@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"time"
+	// "time"
 	// "math/rand"
 	// "time"
 )
@@ -69,34 +69,60 @@ import (
 // make(chan int, 100) // Buffered: Holds 100 values before blocking
 
 
-func emailSender(emailChan chan string,done chan bool){
+// func emailSender(emailChan chan string,done chan bool){
 
-defer func(){done<-true}()
+// defer func(){done<-true}()
 
-for email:=range emailChan{
-	fmt.Println("sending email to ",email)
-	time.Sleep(time.Second)
-}
+// for email:=range emailChan{
+// 	fmt.Println("sending email to ",email)
+// 	time.Sleep(time.Second)
+// }
 
 
-}
+// }
+
+// func main(){
+// 	emailChan:= make(chan string,100)// buffered channel have the space to hold 100 messages
+	
+// 	done:=make(chan bool)
+
+// 	go emailSender(emailChan,done)
+
+
+// 	for i:=0;i<5;i++{
+
+// 		emailChan<-fmt.Sprintf("%d@gmail.com",i)
+	
+// 	}
+	
+
+// 	fmt.Println("done sending")
+// 	close(emailChan)
+// 	<-done
+// }
+
 
 func main(){
-	emailChan:= make(chan string,100)// buffered channel have the space to hold 100 messages
-	
-	done:=make(chan bool)
-
-	go emailSender(emailChan,done)
+	chan1:=make(chan string)
+	chan2:=make(chan int)
 
 
-	for i:=0;i<5;i++{
+	go func(){
+		chan1<-"hello bitch"
+	}()
 
-		emailChan<-fmt.Sprintf("%d@gmail.com",i)
-	
+	go func(){
+		chan2<-2
+			}()
+
+for i:=0;i<2;i++{
+	select{
+	case chanval1:=<-chan1:
+		fmt.Println("recieved data from chan1",chanval1)
+	case chanval2:=<-chan2:
+		fmt.Println("recieved data from chan2",chanval2)
 	}
-	
+}			
 
-	fmt.Println("done sending")
-	close(emailChan)
-	<-done
+
 }
