@@ -4,6 +4,7 @@ package main
 import "fmt"
 
 
+// type OrderStatus string
 type OrderStatus int
 
 const (
@@ -12,6 +13,13 @@ const (
 	Delivered
 	Canceled
 )
+
+// const (
+// 	Pending OrderStatus = "Pending"
+// 	Shipped OrderStatus = "Shipped"
+// 	Delivered OrderStatus = "Delivered"
+// 	Canceled OrderStatus = "Canceled"
+// )
 
 
 func Print(status ...OrderStatus){
@@ -22,5 +30,5 @@ func Print(status ...OrderStatus){
 
 func main(){
 
-	Print(Canceled,Delivered)
+	Print(Canceled,Delivered,Pending)
 }
