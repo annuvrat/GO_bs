@@ -2,23 +2,41 @@ package main
 
 import (
 	"fmt"
-	"time"
+	// "math/rand"
+	// "time"
 )
+// sending example
+// func processNum(numChan chan int){
+// for num:=range numChan{
+// 	fmt.Println("processing number",num)
+// 	time.Sleep(time.Second*1)
+// }
+// }
+func sum(result chan int,num1 int , num2 int){
+	sum:= num1+num2
 
-func processNum(numChan chan int){
-
-	fmt.Println("processing number",<-numChan)
+	result<-sum
 
 }
+
+
 func main(){
 
-	numChan := make(chan int)
 
-	go processNum(numChan)
+	result:= make(chan int)
+	go sum(result,3,5)
 
-	numChan<-5
+	res:=<-result
+	
+	fmt.Println("Sum is:",res)
+// 	numChan := make(chan int)
 
-	time.Sleep(time.Second*2)
+// 	go processNum(numChan)
+
+//    for {
+// 	numChan <- rand.Intn(100)
+//    }
+	// time.Sleep(time.Second*2)
 // 	messageChan:= make(chan string)
 
 //   messageChan<-"ping"//blocking
