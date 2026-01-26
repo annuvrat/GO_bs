@@ -3,15 +3,15 @@ package main
 import "fmt"
 
 
-func printslice[T int|string|bool](items []T) {
+func printslice[T comparable](items []T) {
 
 	for _, item := range items {
-		println(item)
+		println( item)
 	}
 
 }
 
-type stack[T any]struct{
+type stack[T comparable]struct{
 	elements[]T
 }
 func main() {
@@ -27,5 +27,6 @@ func main() {
 	// vals:=  []bool{true,false}
 
    fmt.Println(mystack)  
+   printslice([]int {1,2,3})
 	
 }
