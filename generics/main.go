@@ -1,8 +1,9 @@
 package main
 
+import "fmt"
 
 
-func printslice[T any](items []T) {
+func printslice[T int|string|bool](items []T) {
 
 	for _, item := range items {
 		println(item)
@@ -10,13 +11,21 @@ func printslice[T any](items []T) {
 
 }
 
+type stack[T any]struct{
+	elements[]T
+}
 func main() {
 
+
+	mystack:= stack[string]{
+		elements: []string{"first","second","third"},
+	}
 	// nums:=[]int{1,2,3,4,5}
 
-	names:= []string{"Alice", "Bob", "Charlie"}
+	// names:= []string{"Alice", "Bob", "Charlie"}
 
-	printslice(names)
-  
+	// vals:=  []bool{true,false}
+
+   fmt.Println(mystack)  
 	
 }
