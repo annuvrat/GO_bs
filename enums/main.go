@@ -14,7 +14,7 @@ const (
 )
 
 
-func Print(status OrderStatus){
+func Print(status ...OrderStatus){
 
 	fmt.Println("Status is:",status)
 }
@@ -22,5 +22,5 @@ func Print(status OrderStatus){
 
 func main(){
 
-	Print(Canceled)
+	Print(Canceled,Delivered)
 }
