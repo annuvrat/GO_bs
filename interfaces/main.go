@@ -9,7 +9,7 @@ type paymenter interface{
 }
 
 type payment struct{
-gateway paymenter
+gateway paymenter // dependency inversion
 }
 
 func (p payment) makePayment(amount float32)  {
