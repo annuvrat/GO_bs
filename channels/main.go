@@ -12,23 +12,23 @@ import (
 // 	time.Sleep(time.Second*1)
 // }
 // }
-func sum(result chan int,num1 int , num2 int){
-	sum:= num1+num2
+// func sum(result chan int,num1 int , num2 int){
+// 	sum:= num1+num2
 
-	result<-sum
+// 	result<-sum// blocking
 
-}
-
-
-func main(){
+// }
 
 
-	result:= make(chan int)
-	go sum(result,3,5)
+// func main(){
 
-	res:=<-result
+
+// 	result:= make(chan int)
+// 	go sum(result,3,5)
+
+// 	res:=<-result
 	
-	fmt.Println("Sum is:",res)
+// 	fmt.Println("Sum is:",res)
 // 	numChan := make(chan int)
 
 // 	go processNum(numChan)
@@ -44,5 +44,24 @@ func main(){
 //   msg:=<-messageChan
 
 //   fmt.Println(msg)
+
+// }
+
+
+func task(done chan bool){
+defer func (){done<-true}()
+fmt.Println("task started")
+
+
+}
+
+
+func main(){
+
+ done:= make (chan bool)
+
+ go task(done)
+
+ <-done
 
 }
