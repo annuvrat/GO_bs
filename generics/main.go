@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 
-func printslice[T comparable](items []T) {
+func printslice[T comparable, V string](items []T, name V) {
 
 	for _, item := range items {
-		println( item)
+		println( item,name)
 	}
 
 }
@@ -27,6 +27,6 @@ func main() {
 	// vals:=  []bool{true,false}
 
    fmt.Println(mystack)  
-   printslice([]int {1,2,3})
+   printslice([]int {1,2,3}, "numbers")
 	
 }
