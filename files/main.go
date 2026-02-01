@@ -1,8 +1,7 @@
 package main
 
 import (
-	// "fmt"
-	"fmt"
+	
 	"os"
 )
 
@@ -60,18 +59,34 @@ func main(){
 // fmt.Println("data",string(f))
 
 //read folders
-dir,err:= os.Open(".")
+// dir,err:= os.Open(".")
 
-if err != nil{
-	panic(err)
+// if err != nil{
+// 	panic(err)
+// }
+
+// defer dir.Close()
+
+// fileINfo,err:= dir.ReadDir(2)
+
+// for _,file:= range fileINfo {
+// 	fmt.Println("name",file.Name(),file.IsDir())
+// }
+
+
+//create the file and folders
+
+
+file,err := os.Create("bitch.txt")
+
+if err!= nil{
+
+panic(err)
 }
+defer file.Close()
 
-defer dir.Close()
+file.WriteString("hi biches")
+file.WriteString("bitch lasagnia")
 
-fileINfo,err:= dir.ReadDir(2)
-
-for _,file:= range fileINfo {
-	fmt.Println("name",file.Name(),file.IsDir())
-}
 
 }
