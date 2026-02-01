@@ -60,7 +60,7 @@ func main(){
 // fmt.Println("data",string(f))
 
 //read folders
-dir,err:= os.Open("./")
+dir,err:= os.Open(".")
 
 if err != nil{
 	panic(err)
@@ -71,7 +71,7 @@ defer dir.Close()
 fileINfo,err:= dir.ReadDir(2)
 
 for _,file:= range fileINfo {
-	fmt.Println("name",file.Name())
+	fmt.Println("name",file.Name(),file.IsDir())
 }
 
 }
