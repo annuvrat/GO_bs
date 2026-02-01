@@ -1,7 +1,8 @@
 package main
 
 import (
-	
+	"bufio"
+	"fmt"
 	"os"
 )
 
@@ -77,16 +78,70 @@ func main(){
 //create the file and folders
 
 
-file,err := os.Create("bitch.txt")
+// file,err := os.Create("bitch.txt")
+
+// if err!= nil{
+
+// panic(err)
+// }
+// defer file.Close()
+
+// // file.WriteString("hi biches")
+// // file.WriteString("bitch lasagnia")
+
+// bytes := []byte("hello go")
+
+// file.Write(bytes)
+
+//read and write to another file( streaming fashion)
+
+file,err:= os.Open("t.txt")
+
 
 if err!= nil{
 
-panic(err)
+	panic(err)
+
 }
-defer file.Close()
 
-file.WriteString("hi biches")
-file.WriteString("bitch lasagnia")
+defer  file.Close()
 
+destFile ,err := os.Create("t1.txt")
+
+if err!=nil {
+	panic(err)
+}
+
+defer destFile.Close()
+
+reader := bufio.NewReader(file)
+writer:= bufio.NewWriter(destFile)
+
+for{
+	b,err:=reader.ReadByte()
+
+	if err!=nil{
+
+		if err.Error()!= "EOF"{
+
+			panic(err)
+		}
+		break
+	}
+
+
+	er:=writer.WriteByte(b)
+
+	if er!= nil{
+		panic(er)
+	}
+
+
+
+}
+
+writer.Flush()
+
+fmt.Println("written to new file")
 
 }
