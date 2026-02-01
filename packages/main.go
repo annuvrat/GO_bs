@@ -1,6 +1,12 @@
 package main
 
-import "github.com/annuvrat/GO_bs/auth"
+import (
+	"fmt"
+
+	"github.com/annuvrat/GO_bs/auth"
+	"github.com/annuvrat/GO_bs/user"
+
+)
 
 
 
@@ -8,4 +14,20 @@ import "github.com/annuvrat/GO_bs/auth"
 func main(){
 
 auth.LoginWithCreds("annu","mypassword")
+
+
+
+    session := auth.GetSession()
+
+	fmt.Println("session", session)
+
+
+	user := user.User{
+		Id:    1,
+		Name:  "Annu",
+		Email: "annu@example.com",
+	}
+
+	fmt.Println("user", user,user.Name)
+
 }
