@@ -1,10 +1,13 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 )
+
+// "bufio"
+// "fmt"
+// "os"
 
 func main(){
 
@@ -95,53 +98,77 @@ func main(){
 
 //read and write to another file( streaming fashion)
 
-file,err:= os.Open("t.txt")
+// file,err:= os.Open("t.txt")
 
 
-if err!= nil{
+// if err!= nil{
 
+// 	panic(err)
+
+// }
+
+// defer  file.Close()
+
+// destFile ,err := os.Create("t1.txt")
+
+// if err!=nil {
+// 	panic(err)
+// }
+
+// defer destFile.Close()
+
+// reader := bufio.NewReader(file)
+// writer:= bufio.NewWriter(destFile)
+
+// for{
+// 	b,err:=reader.ReadByte()
+
+// 	if err!=nil{
+
+// 		if err.Error()!= "EOF"{
+
+// 			panic(err)
+// 		}
+// 		break
+// 	}
+
+
+// 	er:=writer.WriteByte(b)
+
+// 	if er!= nil{
+// 		panic(er)
+// 	}
+
+
+
+// }
+
+// writer.Flush()
+
+// fmt.Println("written to new file")
+
+
+//// delete a file
+
+
+// file,err:= os.Open("t.txt")
+
+
+// if err!= nil{
+
+// 	panic(err)
+
+// }
+
+// defer  file.Close()
+
+err:= os.Remove("t1.txt")
+
+ if err!= nil{
 	panic(err)
-
-}
-
-defer  file.Close()
-
-destFile ,err := os.Create("t1.txt")
-
-if err!=nil {
-	panic(err)
-}
-
-defer destFile.Close()
-
-reader := bufio.NewReader(file)
-writer:= bufio.NewWriter(destFile)
-
-for{
-	b,err:=reader.ReadByte()
-
-	if err!=nil{
-
-		if err.Error()!= "EOF"{
-
-			panic(err)
-		}
-		break
-	}
+ }
 
 
-	er:=writer.WriteByte(b)
-
-	if er!= nil{
-		panic(er)
-	}
-
-
-
-}
-
-writer.Flush()
-
-fmt.Println("written to new file")
+ fmt.Println("file deleted")
 
 }
