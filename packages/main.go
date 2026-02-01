@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/annuvrat/GO_bs/auth"
+    "github.com/fatih/color"
+"github.com/annuvrat/GO_bs/auth"
 	"github.com/annuvrat/GO_bs/user"
-
 )
 
 
@@ -29,5 +28,8 @@ auth.LoginWithCreds("annu","mypassword")
 	}
 
 	fmt.Println("user", user,user.Name)
+
+    color.Cyan(user.Email)
+
 
 }
